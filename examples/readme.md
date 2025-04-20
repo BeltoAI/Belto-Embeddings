@@ -54,3 +54,41 @@ async function getEmbedding(text) {
     }
 }
 ```
+## 3. Comparing Prompt with Texts
+
+The `comparePromptWithStrings` function compares a given prompt with an array of texts. For each text, it fetches the embedding and computes the cosine similarity with the prompt embedding.
+
+### Code Example
+
+```javascript
+async function comparePromptWithStrings(prompt, textsArray) {
+    const promptEmbedding = await getEmbedding(prompt);
+
+    if (!promptEmbedding || promptEmbedding.length === 0) {
+        console.log('Error: Invalid embedding for prompt.');
+        return;
+    }
+
+    // Debugging: Log the shape of the prompt embedding
+    console.log('Prompt embedding structure:', promptEmbedding);
+
+    // Create an array to store the cosine similarity results
+    const similarityResults = {};
+
+    // Loop over the array of strings and fetch embeddings dynamically to compute similarity
+    for (const text of textsArray) {
+        const vector = await getEmbedding(text); // Fetch the embedding for each text
+
+        // Ensure the vector from the map is valid and of the same length as the prompt
+        if (!vector || vector.length !== promptEmbedding.length) {
+            console.error(`Error: Invalid vector for "${text}", skipping...`);
+            continue;
+        }
+
+        const similarity = cosineSimilarity(promptEmbedding, vector); // Compare prompt embedding with fetched vector
+        similarityResults[text] = similarity;
+    }
+
+    return similarityResults;
+}
+```
