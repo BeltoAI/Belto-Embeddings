@@ -16,6 +16,14 @@ This project provides an API for generating sentence embeddings using the **Sent
 - **Search**: Perform semantic search by matching query embeddings to document embeddings.
 - **Recommendation Systems**: Recommend similar sentences or documents based on embeddings.
 
+# Model Details
+
+- **Model**: `sentence-transformers/all-MiniLM-L6-v2`
+- **Embedding Dimension**: `384`
+- **Max Tokens Per Chunk**: `512`
+- **Description**: This model generates dense vector representations of sentences, which can be used for various downstream tasks such as text similarity, clustering, and semantic search.
+
+
 ## API Endpoints
 
 ### 1. `/health` (GET)
@@ -66,3 +74,5 @@ This endpoint generates sentence embeddings for one or more input text(s). You c
   ]
 }
 ```
+
+
