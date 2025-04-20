@@ -92,3 +92,25 @@ async function comparePromptWithStrings(prompt, textsArray) {
     return similarityResults;
 }
 ```
+## 4. Example Usage
+
+Finally, we call the `comparePromptWithStrings` function to compare the prompt with an array of texts and print the similarity scores.
+
+### Code Example
+
+```javascript
+const prompt = "This is a sample prompt to compare with other vectors.";
+const textsArray = [
+    "This is the first comparison text.",
+    "Here is another text to compare.",
+    "The third comparison text is here.",
+    // Add more texts to compare with the prompt
+];
+
+async function runComparison() {
+    const similarityScores = await comparePromptWithStrings(prompt, textsArray);
+    console.log("Similarity Scores: ", similarityScores);
+}
+
+runComparison();
+```
