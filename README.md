@@ -74,5 +74,17 @@ This endpoint generates sentence embeddings for one or more input text(s). You c
   ]
 }
 ```
+## Expected Response
 
+```json
+{
+  "embeddings": [
+    [0.123456, 0.234567, 0.345678, ..., 0.987654],
+    [0.223344, 0.445566, 0.556677, ..., 0.876543],
+    [0.112233, 0.334455, 0.556677, ..., 0.998877]
+  ],
+  "input_count": 3,
+  "dimension": 384
+}
+```
 
