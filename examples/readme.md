@@ -114,3 +114,16 @@ async function runComparison() {
 
 runComparison();
 ```
+## Expected Output
+
+The expected output will be a set of cosine similarity scores comparing the provided prompt to each of the texts in the `textsArray`.
+
+### Example
+
+```json
+{
+  "This is the first comparison text.": 0.85,
+  "Here is another text to compare.": 0.92,
+  "The third comparison text is here.": 0.88
+}
+```
