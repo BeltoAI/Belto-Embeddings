@@ -127,3 +127,8 @@ The expected output will be a set of cosine similarity scores comparing the prov
   "The third comparison text is here.": 0.88
 }
 ```
+## Notes
+
+- The `x-api-key` header is required to authenticate the request to the API.
+- The cosine similarity values range from `-1` (completely different) to `1` (identical).
+- The embeddings are fetched asynchronously, so ensure that `await` is used to handle the promises.
