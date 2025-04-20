@@ -43,3 +43,26 @@ This endpoint provides information about the model and its configuration.
   "model": "sentence-transformers/all-MiniLM-L6-v2"
 }
 ```
+### 3. `/embed` (POST)
+
+This endpoint generates sentence embeddings for one or more input text(s). You can provide either a single sentence or a list of sentences. The embeddings are generated using the `sentence-transformers/all-MiniLM-L6-v2` model.
+
+## Request
+
+- **Method**: `POST`
+- **URL**: `/embed`
+- **Content-Type**: `application/json`
+- **Headers**:
+  - `x-api-key`: Your API key (replace with your own key)
+
+### Request Body (Example with a list of strings)
+
+```json
+{
+  "text": [
+    "This is the first sentence.",
+    "Here is another sentence for embedding.",
+    "And this is the third sentence."
+  ]
+}
+```
