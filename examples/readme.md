@@ -27,3 +27,30 @@ function cosineSimilarity(vecA, vecB) {
     return dotProduct / (magnitudeA * magnitudeB);
 }
 ```
+## 2. Fetching Embeddings
+
+The `getEmbedding` function sends a `POST` request to the `/embed` API endpoint to fetch the embedding for a given text. It logs the embedding response and returns the first embedding in the array (assuming only one vector per string).
+
+### Code Example
+
+```javascript
+async function getEmbedding(text) {
+    try {
+        const response = await axios.post('http://localhost:5000/embed', {
+            text: text
+        }, {
+            headers: {
+                'x-api-key': '123456789012345' // Replace with your actual API key
+            }
+        });
+
+        // Debugging: Log the embeddings received from the Python API
+        console.log(`Embedding for "${text}":`, response.data.embeddings);
+
+        return response.data.embeddings[0]; // Assuming only one vector per string in the response
+    } catch (error) {
+        console.error('Error fetching embedding:', error);
+        return null;
+    }
+}
+```
