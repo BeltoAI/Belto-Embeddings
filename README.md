@@ -87,4 +87,8 @@ This endpoint generates sentence embeddings for one or more input text(s). You c
   "dimension": 384
 }
 ```
+## Notes
+
+- The `text` field should be a list of strings. If you provide a single string, it will automatically be converted into a list containing that single string.
+- The embeddings are **normalized** (optional for cosine similarity) to ensure that they can be used effectively for similarity comparisons.
 
