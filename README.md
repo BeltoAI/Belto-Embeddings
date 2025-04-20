@@ -29,7 +29,7 @@ This project provides an API for generating sentence embeddings using the **Sent
 }
 ```
 
-## API Endpoint: `/info`
+## API Endpoint: `/info` (GET)
 
 This endpoint provides information about the model and its configuration.
 
