@@ -27,7 +27,7 @@ This project provides an API for generating sentence embeddings using the **Sent
 {
   "status": "ok"
 }
-
+```
 
 ## API Endpoint: `/info`
 
