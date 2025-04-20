@@ -1,0 +1,29 @@
+# Example: Using the API with Cosine Similarity in JavaScript
+
+This example demonstrates how to use the `/embed` API endpoint in JavaScript to obtain sentence embeddings and compute cosine similarity between vectors.
+
+## Code Overview
+
+### 1. **Cosine Similarity Function**
+
+The `cosineSimilarity` function calculates the similarity between two vectors. It computes the dot product of the vectors and divides it by the product of their magnitudes. This function is essential for comparing the similarity between two text embeddings.
+
+```javascript
+function cosineSimilarity(vecA, vecB) {
+    if (!vecA || !vecB || vecA.length !== vecB.length) {
+        console.error('Error: Vectors are of different lengths or null/undefined.');
+        return NaN;
+    }
+
+    const dotProduct = vecA.reduce((sum, v, i) => sum + v * vecB[i], 0);
+    const magnitudeA = Math.sqrt(vecA.reduce((sum, v) => sum + v * v, 0));
+    const magnitudeB = Math.sqrt(vecB.reduce((sum, v) => sum + v * v, 0));
+
+    if (magnitudeA === 0 || magnitudeB === 0) {
+        console.error('Error: One of the vectors has zero magnitude.');
+        return NaN;
+    }
+
+    return dotProduct / (magnitudeA * magnitudeB);
+}
+```
